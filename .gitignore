@@ -1,0 +1,12 @@
+.venv
+dashboard/node_modules
+dashboard/dist
+dashboard/.env
+dashboard/build
+dashboard/.next
+dashboard/yarn-error.log
+dashboard/.pnp.*
+dashboard/.pnp.js
+dashboard/.DS_Store 
+dashboard/yarn.lock
+dashboard/package-lock.json
