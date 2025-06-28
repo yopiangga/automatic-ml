@@ -1,13 +1,16 @@
 # flask api for serving the model
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 import numpy as np
 import pandas as pd
 import datetime
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/evaluate')
+@cross_origin()
 def evaluate():
     try:
         list_dir = os.listdir("../data")
@@ -71,6 +74,7 @@ def evaluate():
         return jsonify({'error': str(e)}), 400
 
 @app.route('/') 
+@cross_origin()
 def index():
     return jsonify({'message': 'Monitoring model running!!'}), 200
 

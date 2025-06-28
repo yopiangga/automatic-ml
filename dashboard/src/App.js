@@ -1,25 +1,46 @@
-import logo from "./logo.svg";
 import "./App.css";
+import React from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContextProvider } from "./context/AppContextProvider";
+import { UserContext } from "./context/UserContext";
+import LoadComponent from "./components/load";
+import AdminRouterPage from "./router/AdminRouterPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-yellow-500">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContextProvider>
+      <UserManager />
+    </AppContextProvider>
   );
 }
 
 export default App;
+
+function UserManager() {
+  const { user, setUser } = useContext(UserContext);
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 0);
+  }, []);
+
+  if (load) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center bg-white">
+        <LoadComponent />
+      </div>
+    );
+  } else if (user.role === "admin") {
+    return <AdminRouterPage />;
+  } else {
+    return (
+      <div className="w-full h-screen flex justify-center items-center bg-white">
+        <h1 className="text-2xl font-bold text-gray-800">
+          You do not have access to this application.
+        </h1>
+      </div>
+    );
+  }
+}

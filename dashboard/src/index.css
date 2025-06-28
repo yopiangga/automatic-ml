@@ -1,3 +1,93 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.f-s-r {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.f-s-m {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.f-s-sb {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 800;
+}
+
+.f-p1-r {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.f-p1-m {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.f-p1-sb {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 800;
+}
+
+.f-p2-r {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.f-p2-m {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.f-p2-sb {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 800;
+}
+
+.f-h1 {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 900;
+}
+
+.f-h2 {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 900;
+}
+
+.f-h3 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 800;
+}
+
+.f-h4 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 800;
+}
+
+.f-h5 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+
