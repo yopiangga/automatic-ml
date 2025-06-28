@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
-
-scaled_data = pd.read_csv("data/emas_scaled.csv", index_col=0)
-time_step = 60
+import sys
+sys.path.append("..")
+from config.general import time_step
 
 def create_dataset(dataset, time_step=time_step):
     X, y = [], []
@@ -11,9 +11,20 @@ def create_dataset(dataset, time_step=time_step):
         y.append(dataset[i, 0])
     return np.array(X), np.array(y)
 
-X, y = create_dataset(scaled_data, time_step)
-X = X.reshape((X.shape[0], X.shape[1], 1))
+class FeatureEngineering:
+    def __init__(self, emas_file="data/emas_scaled.csv"):
+        self.emas_file = emas_file
 
-# Save the processed data for model training
-np.save("data/X.npy", X)
-np.save("data/y.npy", y)    
+    def load_data(self):
+        df_emas = pd.read_csv(self.emas_file, index_col=0)
+        return df_emas
+    
+    def create_features(self, df):
+        df = df.values
+        X, y = create_dataset(df, time_step)
+        X = X.reshape((X.shape[0], X.shape[1], 1))
+        return X, y
+    
+    def save_features(self, X, y, current_date="data"):
+        np.save(f"data/{current_date}/X.npy", X)
+        np.save(f"data/{current_date}/y.npy", y)
