@@ -6,9 +6,8 @@ import prod.data_preparation
 import prod.feature_engineering
 import prod.train_model
 
-def main():
-    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-    
+def main(current_date = datetime.datetime.now().strftime("%Y-%m-%d")):
+
     # Create data directory if it doesn't exist
     if not os.path.exists(f"data/{current_date}"):
         os.makedirs(f"data/{current_date}")
