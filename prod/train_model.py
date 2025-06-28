@@ -38,10 +38,9 @@ class TrainModel:
         model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
 
         loss = model.evaluate(X_test, y_test, verbose=1)
-        # save loss
+
         with open(f"models/{self.current_date}/loss_dev.txt", "w") as f:
             f.write(str(loss))
-        print(f"Test Loss: {loss}")
 
         model.save(f"models/{self.current_date}/model.h5")
         return model

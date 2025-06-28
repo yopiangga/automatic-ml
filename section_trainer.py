@@ -38,4 +38,5 @@ def main(current_date = datetime.datetime.now().strftime("%Y-%m-%d")):
     model = train_model.train(X_train, y_train, X_test, y_test)
 
 if __name__ == "__main__":
+    # main("2025-06-28")
     main()
