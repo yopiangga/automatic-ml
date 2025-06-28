@@ -44,6 +44,6 @@ class Evaluate:
         evaluate["mse"] = [mse]
         evaluate["r2"] = [r2]
 
-        evaluate.to_csv(f"data/{self.last_time}/evaluate.csv")
+        evaluate.to_csv(f"data/{self.last_time}/evaluate.csv", index=False)
 
 
